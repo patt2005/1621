@@ -228,35 +228,41 @@ class _ImagePickerScreenState extends State<ImagePickerScreen> {
                       ),
                     ),
                     const SizedBox(height: 8),
-                    Row(
-                      children:
-                          _proportions
-                              .map(
-                                (prop) => Padding(
-                                  padding: const EdgeInsets.only(right: 8),
-                                  child: ElevatedButton(
-                                    onPressed:
-                                        () =>
-                                            setState(() => _proportion = prop),
-                                    style: ElevatedButton.styleFrom(
-                                      backgroundColor:
-                                          _proportion == prop
-                                              ? const Color(0xFFFFB347)
-                                              : Colors.grey[200],
-                                      foregroundColor:
-                                          _proportion == prop
-                                              ? Colors.black
-                                              : Colors.grey[600],
-                                      elevation: 0,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(8),
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children:
+                            _proportions
+                                .map(
+                                  (prop) => Padding(
+                                    padding: const EdgeInsets.only(right: 8),
+                                    child: ElevatedButton(
+                                      onPressed:
+                                          () => setState(
+                                            () => _proportion = prop,
+                                          ),
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor:
+                                            _proportion == prop
+                                                ? const Color(0xFFFFB347)
+                                                : Colors.grey[200],
+                                        foregroundColor:
+                                            _proportion == prop
+                                                ? Colors.black
+                                                : Colors.grey[600],
+                                        elevation: 0,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(
+                                            8,
+                                          ),
+                                        ),
                                       ),
+                                      child: Text(prop),
                                     ),
-                                    child: Text(prop),
                                   ),
-                                ),
-                              )
-                              .toList(),
+                                )
+                                .toList(),
+                      ),
                     ),
                     const SizedBox(height: 16),
                     const Text(
@@ -268,36 +274,41 @@ class _ImagePickerScreenState extends State<ImagePickerScreen> {
                       ),
                     ),
                     const SizedBox(height: 8),
-                    Row(
-                      children:
-                          _filters
-                              .map(
-                                (filter) => Padding(
-                                  padding: const EdgeInsets.only(right: 8),
-                                  child: ElevatedButton(
-                                    onPressed:
-                                        () => setState(
-                                          () => _activeFilter = filter,
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children:
+                            _filters
+                                .map(
+                                  (filter) => Padding(
+                                    padding: const EdgeInsets.only(right: 8),
+                                    child: ElevatedButton(
+                                      onPressed:
+                                          () => setState(
+                                            () => _activeFilter = filter,
+                                          ),
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor:
+                                            _activeFilter == filter
+                                                ? const Color(0xFFFFB347)
+                                                : Colors.grey[200],
+                                        foregroundColor:
+                                            _activeFilter == filter
+                                                ? Colors.black
+                                                : Colors.grey[600],
+                                        elevation: 0,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(
+                                            8,
+                                          ),
                                         ),
-                                    style: ElevatedButton.styleFrom(
-                                      backgroundColor:
-                                          _activeFilter == filter
-                                              ? const Color(0xFFFFB347)
-                                              : Colors.grey[200],
-                                      foregroundColor:
-                                          _activeFilter == filter
-                                              ? Colors.black
-                                              : Colors.grey[600],
-                                      elevation: 0,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(8),
                                       ),
+                                      child: Text(filter),
                                     ),
-                                    child: Text(filter),
                                   ),
-                                ),
-                              )
-                              .toList(),
+                                )
+                                .toList(),
+                      ),
                     ),
                   ],
                 ),
